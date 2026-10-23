@@ -334,31 +334,4 @@ Following the KDD steps turned three raw files into a model that predicts crop y
 
 ---
 
-## 13. Limitations and future work
 
-### Limitations
-
-- **Random split and k = 1.** The random 80/20 split can put records of the same country and crop from nearby years in both the training and test sets. A single nearest neighbour then acts almost like a duplicate, which probably helps k-NN with k = 1 look better than it would on genuinely new years or regions.
-- **Category encoding.** Country and crop are stored as integer codes, which imply an artificial order and distance. This especially affects k-NN.
-- **Merging drops rows.** The inner join removes records with no rainfall or pesticide data.
-- **Simplified Random Forest.** The forest tests 9 percentile thresholds per feature instead of every possible split, to keep the from-scratch code fast and easy to follow.
-- **Association, not causation.** The models find patterns. They do not prove that rainfall, pesticides or temperature cause a yield change.
-
-### Future work
-
-- Use one-hot encoding, or a distance designed for mixed categorical and numeric data.
-- Evaluate with a time-based or region-based split to test real forecasting.
-- Tune parameters systematically (k, tree depth, number of trees).
-- Compare against established library models.
-- Test on additional or more recent data.
-
----
-
-## 14. References
-
-1. Han, J., Kamber, M., & Pei, J. (2011). *Data Mining: Concepts and Techniques* (3rd ed.). Morgan Kaufmann.
-2. Cover, T. M., & Hart, P. E. (1967). Nearest neighbor pattern classification. *IEEE Transactions on Information Theory, 13*(1), 21–27.
-3. Breiman, L. (2001). Random forests. *Machine Learning, 45*, 5–32.
-4. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). *An Introduction to Statistical Learning* (2nd ed.). Springer.
-
-Please verify the bibliographic details and citation style required by your institution.
